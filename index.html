@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Athlete recruiting profile with physical testing, academics, game film and coach references.">
+  <title>Athlete recruiting profile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/data.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a class="skipLink" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="nav__inner wrap">
+      <a class="wordmark" href="#top">
+        <svg class="wordmark__mark" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 20V4l9 10 9-10v16" fill="none" stroke="currentColor" stroke-width="2.6"></path>
+        </svg>
+        <span>MVP Reels</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
+          <path d="M3 6h16M3 11h16M3 16h16" fill="none" stroke="currentColor" stroke-width="1.8"></path>
+        </svg>
+      </button>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <a class="nav__link" href="#stats">Measurables</a>
+        <a class="nav__link" href="#film">Film room</a>
+        <a class="nav__link" href="#scouting">Scouting</a>
+        <a class="btn btn--solid nav__cta" href="#contact">Recruiter portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- 2. Hero -->
+    <section class="hero" id="top" aria-labelledby="heroName">
+      <div class="hero__media" id="heroMedia" aria-hidden="true">
+        <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" hidden></video>
+        <img class="hero__poster" id="heroPoster" alt="" hidden>
+        <div class="hero__fade"></div>
+      </div>
+
+      <div class="hero__inner wrap">
+        <p class="hero__position" id="heroPosition"></p>
+
+        <div class="hero__titleRow">
+          <h1 class="hero__name" id="heroName"></h1>
+          <span class="hero__jersey" id="heroJersey" aria-hidden="true"></span>
+        </div>
+
+        <dl class="hero__facts" id="heroFacts"></dl>
+
+        <div class="hero__actions" id="heroActions">
+          <a class="btn btn--solid" href="#film">Watch highlights</a>
+          <a class="btn btn--outline" id="cvLink" href="#" download>Download athletic CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Measurables and academics -->
+    <section class="section" id="stats" aria-labelledby="statsTitle">
+      <div class="wrap">
+        <h2 class="section__title" id="statsTitle">Measurables and academics</h2>
+        <div class="stats__grid">
+          <div class="stats__col" id="physicalCol">
+            <h3 class="blockTitle">Physical testing</h3>
+            <dl class="rows" id="physicalRows"></dl>
+          </div>
+          <div class="stats__col" id="academicCol">
+            <h3 class="blockTitle">Academics</h3>
+            <dl class="rows" id="academicRows"></dl>
+            <p class="statusTag" id="complianceTag">
+              <span class="statusTag__dot" aria-hidden="true"></span>NCAA eligibility compliant
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Film room -->
+    <section class="section" id="film" aria-labelledby="filmTitle">
+      <div class="wrap">
+        <h2 class="section__title" id="filmTitle">Film room</h2>
+        <div class="tabs" id="filmTabs" role="tablist" aria-label="Video categories"></div>
+        <div class="videoGrid" id="videoGrid" role="tabpanel" aria-labelledby="filmTab0"></div>
+      </div>
+    </section>
+
+    <!-- 5. Scouting report -->
+    <section class="section" id="scouting" aria-labelledby="scoutingTitle">
+      <div class="wrap">
+        <h2 class="section__title" id="scoutingTitle">Scouting report</h2>
+        <div class="scout__grid">
+          <div class="scout__col" id="honorsCol">
+            <h3 class="blockTitle">Honors and awards</h3>
+            <ul class="honors" id="honorsList"></ul>
+          </div>
+          <div class="scout__col" id="coachesCol">
+            <h3 class="blockTitle">Coach references</h3>
+            <div class="coaches" id="coachList"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Recruiter portal -->
+    <section class="section" id="contact" aria-labelledby="contactTitle">
+      <div class="wrap contact__grid">
+        <div class="contact__intro">
+          <h2 class="section__title" id="contactTitle">Recruiter portal</h2>
+          <p class="section__lede">Send a note and the coaching staff replies with full game film, transcripts and a time to talk. Fields are validated before anything is sent.</p>
+          <p class="section__lede section__lede--tight">Messages go straight to the staff. Nothing on this page is shared with third parties.</p>
+        </div>
+
+        <form class="form" id="inquiryForm" novalidate>
+          <div class="form__grid">
+            <div class="field">
+              <label for="coachName">Coach name</label>
+              <input type="text" id="coachName" name="coachName" autocomplete="name" spellcheck="false" aria-describedby="coachNameError">
+              <p class="field__error" id="coachNameError"></p>
+            </div>
+
+            <div class="field">
+              <label for="program">Program or school</label>
+              <input type="text" id="program" name="program" autocomplete="organization" spellcheck="false" aria-describedby="programError">
+              <p class="field__error" id="programError"></p>
+            </div>
+
+            <div class="field">
+              <label for="division">Division</label>
+              <div class="selectWrap">
+                <select id="division" name="division">
+                  <option value="">Select a division</option>
+                  <option value="NCAA Division I">NCAA Division I</option>
+                  <option value="NCAA Division II">NCAA Division II</option>
+                  <option value="NCAA Division III">NCAA Division III</option>
+                  <option value="NAIA">NAIA</option>
+                  <option value="Junior college">Junior college</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" aria-describedby="emailError">
+              <p class="field__error" id="emailError"></p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" aria-describedby="phoneError">
+              <p class="field__error" id="phoneError"></p>
+            </div>
+
+            <div class="field field--full">
+              <label for="note">Note</label>
+              <textarea id="note" name="note" rows="4"></textarea>
+            </div>
+          </div>
+
+          <div class="form__foot">
+            <button class="btn btn--solid" type="submit" id="submitBtn">Send inquiry</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="footer">
+    <div class="wrap footer__top">
+      <div class="footer__brand">
+        <p class="footer__powered">Powered by MVP Reels</p>
+        <p class="footer__desc">Recruiting profiles, highlight edits and athletic CVs produced for high school athletes and the staffs who recruit them.</p>
+      </div>
+      <div class="footer__social" id="footerSocial"></div>
+    </div>
+    <div class="wrap footer__base">
+      <p id="copyright"></p>
+      <p class="footer__compliance">NCAA eligibility compliant</p>
+    </div>
+  </footer>
+</body>
+</html>
